@@ -15,7 +15,11 @@ class CreateCompanyCarImagesTable extends Migration
     {
         Schema::create('company_car_images', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->default(true);
+            $table->unsignedBigInteger('company_cars_id');
+            $table->string('image');
+            $table->timestamps();
+            $table->foreign('company_cars_id')->references('id')->on('company_cars');
+
             $table->timestamps();
         });
     }

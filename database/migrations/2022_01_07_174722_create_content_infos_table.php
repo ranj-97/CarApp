@@ -17,7 +17,6 @@ class CreateContentInfosTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('content');
-            $table->string('info');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

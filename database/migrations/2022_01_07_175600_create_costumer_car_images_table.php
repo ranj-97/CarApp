@@ -15,8 +15,11 @@ class CreateCostumerCarImagesTable extends Migration
     {
         Schema::create('costumer_car_images', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->default(true);
+            $table->unsignedBigInteger('customer_id');
+            $table->string('image');
             $table->timestamps();
+            $table->foreign('customer_id')->references('id')->on('costumers');
+
         });
     }
 
